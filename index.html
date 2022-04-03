@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Simple Navbar with Search Box</title>
+<link href="https://fonts.googleapis.com/css?family=Raleway|Open+Sans" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+	body {
+		background: #eeeeee;
+		font-family: 'Open Sans', sans-serif;
+	}
+    .form-inline {
+        display: inline-block;
+    }
+	.navbar {
+		font-size: 14px;
+		background: #fff;
+		padding-left: 16px;
+		padding-right: 16px;
+		border-bottom: 1px solid #d6d6d6;
+		box-shadow: 0 0 4px rgba(0,0,0,.1);		
+	}
+	.navbar .navbar-brand {
+		color: #555;
+		padding-left: 0;
+		font-size: 20px;
+		padding-right: 50px;
+		font-family: 'Raleway', sans-serif;
+		text-transform: uppercase;
+	}
+	.navbar .navbar-brand b {
+		font-weight: bold;
+		color: #f04f01;
+	}
+	.navbar ul.nav li {
+		font-size: 96%;
+		font-weight: bold;		
+		text-transform: uppercase;
+	}
+	.navbar ul.nav li.active a, .navbar ul.nav li.active a:hover, .navbar ul.nav li.active a:focus {
+		color: #f04f01 !important;
+		background: transparent !important;
+	}
+	.search-box {
+        position: relative;
+    }
+	.search-box input.form-control, .search-box .btn {
+		font-size: 14px;
+		border-radius: 2px !important;
+	}
+	.search-box .input-group-btn {
+		padding-left: 4px;		
+	}
+	.search-box input.form-control:focus {
+		border-color: #f04f01;
+		box-shadow: 0 0 8px rgba(240,79,1,0.2);
+	}
+	.search-box .btn-primary, .search-box .btn-primary:active {
+		font-weight: bold;
+		background: #f04f01;
+		border-color: #f04f01;
+		text-transform: uppercase;
+		min-width: 90px;
+	}
+	.search-box .btn-primary:focus {
+		outline: none;
+		background: #eb4e01;
+		box-shadow: 0 0 8px rgba(240,79,1,0.2);
+	}
+	.search-box .btn span {
+		transform: scale(0.9);
+		display: inline-block;
+	}
+	.navbar ul li i {
+		font-size: 18px;
+	}
+	.navbar .dropdown-menu i {
+		font-size: 16px;
+		min-width: 22px;
+	}
+	.navbar .dropdown.open > a {
+		background: none !important;
+	}
+	.navbar .dropdown-menu {
+		border-radius: 1px;
+		border-color: #e5e5e5;
+		box-shadow: 0 2px 8px rgba(0,0,0,.05);
+	}
+	.navbar .dropdown-menu li a {
+		color: #777;
+		padding: 8px 20px;
+		line-height: normal;
+		font-size: 14px;
+	}
+	.navbar .dropdown-menu li a:hover, .navbar .dropdown-menu li a:active {
+		color: #333;
+	}
+	.navbar .navbar-form {
+		border: none;
+	}
+	@media (min-width: 992px){
+		.form-inline .input-group .form-control {
+			width: 225px;			
+		}
+	}
+	@media (max-width: 992px){
+		.form-inline {
+			display: block;
+		}
+	}
+	
+		margin: 30px 0;
+    background: #ccc;
+}
+.carousel .item {
+    text-align: center;
+	overflow: hidden;
+    height: 475px;
+}
+.carousel .item img {
+	max-width: 100%;
+    margin: 0 auto; /* Align slide image horizontally center in Bootstrap v3 */
+}
+.carousel .carousel-control {
+	width: 50px;
+    height: 50px;
+    background: #000;
+    margin: auto 0;
+	opacity: 0.8;
+}
+.carousel .carousel-control:hover {
+	opacity: 0.9;
+}
+.carousel .carousel-control i {
+    font-size: 41px;
+	margin-top: 3px;
+}
+.carousel-caption h3, .carousel-caption p {
+	color: #fff;
+	display: inline-block;
+	font-family: 'Oswald', sans-serif;
+	text-shadow: none;
+	margin-bottom: 20px;
+}
+.carousel-caption h3 {
+	background: rgba(0,0,0,0.9);
+	padding: 12px 24px;
+	font-size: 40px;	
+	text-transform: uppercase;
+}
+.carousel-caption p {
+	background: #20b0b9;
+	padding: 10px 20px;
+	font-size: 20px;
+	font-weight: 300;
+}
+.carousel-indicators li, .carousel-indicators li.active {
+	margin-left: 4px;
+	margin-right: 4px;
+}
+.carousel-indicators li.active {
+	background: #20b0b9;
+	border-color: #20b0b9;
+}
+.carousel .nav {	
+	background: #eee;
+}
+.carousel .nav a {
+	color: #333;
+	border-radius: 0;
+	font-size: 85%;
+	padding: 10px 16px;
+	background: transparent;
+}
+.carousel .nav .nav-item.active a {
+	color: #fff;
+	background: #20b0b9;
+}
+.carousel .nav strong {
+	display: block;
+	font-family: 'Roboto', sans-serif;
+	font-size: 110%;
+	text-transform: uppercase;
+}
+</style>
+<script>
+	$(document).ready(function(){
+		// Highlight bottom nav links
+		var clickEvent = false;
+		$("#myCarousel").on("click", ".nav a", function(){
+			clickEvent = true;
+			$(this).parent().siblings().removeClass("active");
+			$(this).parent().addClass("active");		
+		}).on("slid.bs.carousel", function(e){
+			if(!clickEvent){
+				itemIndex = $(e.relatedTarget).index();
+				targetNavItem = $(".nav li[data-slide-to='" + itemIndex + "']");
+				$(".nav li").not(targetNavItem).removeClass("active");
+				targetNavItem.addClass("active");
+			}
+			clickEvent = false;
+		});
+	});
+</script>
+</head> 
+<body>
+<nav class="navbar navbar-default navbar-expand-lg navbar-light">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="#">Brand<b>Name</b></a>  		
+		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+			<span class="navbar-toggler-icon"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
+	<!-- Collection of nav links, forms, and other content for toggling -->
+	<div id="navbarCollapse" class="collapse navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li><a href="#">Home</a></li>
+			<li><a href="signup.php">Signup</a></li>	
+            <li><a href="validatelogin.php">Login</a></li>				
+			<li class="dropdown">
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Services <b class="caret"></b></a>
+				<ul class="dropdown-menu">					
+					<li><a href="#">Web Design</a></li>
+					<li><a href="#">Web Development</a></li>
+					<li><a href="#">Graphic Design</a></li>
+					<li><a href="#">Digital Marketing</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+		<form class="navbar-form form-inline navbar-right ml-auto">
+			<div class="input-group search-box">
+				<input type="text" class="form-control">
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-primary"><span>Search 	for Jobs</span></button>
+				</span>
+			</div>
+		</form>		
+	</div>
+</nav>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<!-- Wrapper for carousel items -->
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src="img/employment.jpeg" alt="">
+						<div class="carousel-caption">
+							
+							
+						</div>
+					</div>	
+					
+				
+				
+				</div>
+				<br>
+				<!-- End Carousel Inner -->
+				<ul class="nav nav-pills nav-justified">
+					<li data-target="#myCarousel" data-slide-to="0" class="nav-item active"><a href="#"><strong>About</strong>Lorem ipsum dolor sit amet</a></li>
+					<li data-target="#myCarousel" data-slide-to="1" class="nav-item"><a href="#"><strong>Features</strong> Nesciunt stumpown odio aliqua</a></li>
+					<li data-target="#myCarousel" data-slide-to="2" class="nav-item"><a href="#"><strong>Pricing</strong> Oullam hendrerit justom leow</a></li>
+					<li data-target="#myCarousel" data-slide-to="3" class="nav-item"><a href="#"><strong>Support</strong> Proin suscipit non adipiscing</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>                            
